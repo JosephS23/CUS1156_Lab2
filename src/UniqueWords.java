@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class UniqueWords
 {
@@ -9,15 +10,11 @@ public class UniqueWords
    */
    public static int countUnique(ArrayList<String> list)
    {
-	  int count = 0;
-	  
-      for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
-		 {
-			
-		 }
-      }
-	  return count;
+	   //removed for-loops for better time complexity.
+	  long count = 0;
+	  Stream<String> stream = list.stream();
+	  count = stream.distinct().count();
+	  return (int) count;
    }
 
    public static void main(String[] args)
